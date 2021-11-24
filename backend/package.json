@@ -17,17 +17,20 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "js-brasil": "^2.5.1",
     "module-alias": "^2.2.2",
     "pg": "^8.7.1",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
-    "typeorm": "^0.2.29"
+    "typeorm": "^0.2.29",
+    "validator": "^13.7.0"
   },
   "devDependencies": {
     "@types/faker": "^5.5.9",
     "@types/jest": "^27.0.3",
     "@types/module-alias": "^2.0.1",
     "@types/node": "^16.11.10",
+    "@types/validator": "^13.7.0",
     "@typescript-eslint/eslint-plugin": "^4.33.0",
     "eslint": "^7.32.0",
     "eslint-config-standard-with-typescript": "^21.0.1",
