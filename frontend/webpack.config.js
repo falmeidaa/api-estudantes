@@ -43,7 +43,7 @@ module.exports = {
     contentBase: './dist',
     writeToDisk: true,
     historyApiFallback: true,
-    port: 8082
+    port: 8080
   },
   plugins: [
     new CleanWebpackPlugin(),
