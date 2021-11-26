@@ -26,4 +26,5 @@ Foi utilizado no desenvolvimento metodologias, princípios de programação e de
  - Bootstrap/React Bootstrap
  - Webpack
  - Docker
+ - Express
  - entre outras
