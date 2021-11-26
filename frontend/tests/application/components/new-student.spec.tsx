@@ -56,6 +56,23 @@ describe('NewStudentComponent', () => {
     expect(screen.getByTestId('emailError')).toHaveTextContent('Campo obrigatório')
   })
 
+  test('Should clean error when input change', () => {
+    fireEvent.click(screen.getByText(/Salvar/))
+    fireEvent.change(screen.getByTestId('nsCpfInput'), { target: { value: fakerBr.cpf() } })
+    fireEvent.change(screen.getByTestId('nsEmailInput'), { target: { value: faker.internet.email() } })
+    fireEvent.change(screen.getByTestId('nsNameInput'), { target: { value: faker.name.findName() } })
+
+    expect(screen.queryByTestId('cpfError')).toBeNull()
+    expect(screen.queryByTestId('emailError')).toBeNull()
+    expect(screen.queryByTestId('nameError')).toBeNull()
+  })
+
+  test('Should close component', () => {
+    fireEvent.click(screen.getByText(/Cancelar/))
+
+    expect(screen.queryByTestId('newStudentWrap')).toBeNull()
+  })
+
   test('Should call onSave with correct values', () => {
     const cpf = fakerBr.cpf()
     const email = faker.internet.email()

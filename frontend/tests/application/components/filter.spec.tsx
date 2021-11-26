@@ -56,6 +56,17 @@ describe('FilterComponent', () => {
     expect(screen.getByTestId('emailError')).toHaveTextContent('Campo inválido')
   })
 
+  test('Should clean error when input change', () => {
+    fireEvent.change(screen.getByTestId('cpfInput'), { target: { value: faker.datatype.number() } })
+    fireEvent.change(screen.getByTestId('emailInput'), { target: { value: faker.random.word() } })
+    fireEvent.click(screen.getByText(/Filtrar/))
+    fireEvent.change(screen.getByTestId('cpfInput'), { target: { value: fakerBr.cpf() } })
+    fireEvent.change(screen.getByTestId('emailInput'), { target: { value: faker.internet.email() } })
+
+    expect(screen.queryByTestId('cpfError')).toBeNull()
+    expect(screen.queryByTestId('emailError')).toBeNull()
+  })
+
   test('Should call onFilter with correct values', () => {
     const cpf = fakerBr.cpf()
     const email = faker.internet.email()

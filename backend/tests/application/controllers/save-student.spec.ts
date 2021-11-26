@@ -40,6 +40,18 @@ describe('SavePictureController', () => {
     ])
   })
 
+  test('Should build Validators correctly on save', async () => {
+    const validators = sut.buildValidators({ cpf, email, name })
+
+    expect(validators).toEqual([
+      new Required(cpf, 'cpf'),
+      new Cpf(cpf, 'cpf'),
+      new Required(email, 'email'),
+      new Email(email, 'email'),
+      new Required(name, 'name')
+    ])
+  })
+
   test('Should call saveStudent with correct input', async () => {
     await sut.handle({ id, cpf, email, name })
 

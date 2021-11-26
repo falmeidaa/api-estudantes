@@ -64,6 +64,7 @@ const NewStudent: React.FC<Props> = ({ onSave }: Props) => {
       return
     }
     onSave(state.cpf, state.email, state.name)
+    setVisible(false)
   }
 
   const getErrorMessage = (prop: string): string => {

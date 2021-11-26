@@ -1,10 +1,11 @@
 import { Student } from '@/domain/entities'
 
 import faker from 'faker'
+import { fakerBr } from 'js-brasil'
 
 export const mockStudent = (): Student => ({
   id: faker.datatype.number(),
-  cpf: faker.datatype.uuid(),
+  cpf: fakerBr.cpf(),
   name: faker.name.findName(),
   email: faker.internet.email()
 })
