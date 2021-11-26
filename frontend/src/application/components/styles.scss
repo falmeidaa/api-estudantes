@@ -1,0 +1,47 @@
+@import "../styles/colors.scss";
+
+.filterWrap{
+  margin-bottom: 2rem;
+  .accordion-body, input{
+    background: $white !important;
+  }
+  svg{
+    margin-right: 0.25rem;
+  }
+  #buttonContainer{
+    margin-top: 1rem;
+  }
+  #error{
+    display: block;
+  }
+}
+
+.headerWrap{
+  background: $white;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  img{
+    height: 6.25rem;
+  }
+}
+
+.newStudentWrap{
+  #error{
+    display: block;
+  }
+}
+
+.tableWrap{
+  table{
+    background: $white;
+  }
+  #tableHeader{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    h4{
+      margin:0;
+    }
+  }
+}

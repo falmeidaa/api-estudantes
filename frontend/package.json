@@ -22,6 +22,7 @@
     "@types/react": "^17.0.9",
     "@types/react-dom": "^17.0.6",
     "@types/react-router-dom": "^5.1.7",
+    "@types/recoil": "^0.0.9",
     "@typescript-eslint/eslint-plugin": "^4.26.0",
     "autoprefixer": "^10.3.7",
     "clean-webpack-plugin": "^4.0.0-alpha.0",
@@ -52,13 +53,17 @@
     "webpack-dev-server": "^3.11.2"
   },
   "dependencies": {
+    "@types/validator": "^13.7.0",
     "axios": "^0.24.0",
     "bootstrap": "^5.1.1",
+    "js-brasil": "^2.5.1",
     "react": "^17.0.2",
     "react-bootstrap": "^2.0.0-rc.0",
     "react-dom": "^17.0.2",
     "react-icons": "^4.3.1",
-    "react-router-dom": "^5.2.0"
+    "react-router-dom": "^5.2.0",
+    "recoil": "^0.5.2",
+    "validator": "^13.7.0"
   },
   "keywords": [],
   "author": "",

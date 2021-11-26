@@ -16,7 +16,7 @@ const makeSut = (fieldName: string, value: string): SutTypes => {
   }
 }
 
-describe('CpfCnpjValidator', () => {
+describe('CpfValidator', () => {
   test('Should return InvalidParamError if validation fails', () => {
     const fieldName = faker.random.word()
     const value = faker.random.word()
