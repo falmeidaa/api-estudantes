@@ -1,3 +1,4 @@
+import { Student } from '@/domain/entities'
 import { HttpClient } from '@/domain/gateways'
 import { UnexpectedError } from '@/domain/errors'
 
@@ -20,10 +21,5 @@ export namespace SaveStudent{
     name: string
   }
 
-  export type Output = {
-    id: number
-    cpf: string
-    email: string
-    name: string
-  }
+  export type Output = Student
 }

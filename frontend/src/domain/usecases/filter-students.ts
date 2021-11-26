@@ -1,3 +1,4 @@
+import { Student } from '@/domain/entities'
 import { HttpClient } from '@/domain/gateways'
 import { UnexpectedError } from '@/domain/errors'
 
@@ -19,10 +20,5 @@ export namespace FilterStudents{
     name?: string
   }
 
-  export type Output = Array<{
-    id: number
-    cpf: string
-    email: string
-    name: string
-  }>
+  export type Output = Student[]
 }

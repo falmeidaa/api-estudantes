@@ -1,6 +1,7 @@
 import { FilterStudents, setupFilterStudents } from '@/domain/usecases'
 import { HttpClient } from '@/domain/gateways'
 import { UnexpectedError } from '@/domain/errors'
+import { mockStudent } from '~/mocks/student'
 
 import faker from 'faker'
 import { mock, MockProxy } from 'jest-mock-extended'
@@ -18,22 +19,7 @@ describe('FilterStudents', () => {
       name: faker.name.findName(),
       email: faker.internet.email()
     }
-    output = [{
-      id: faker.datatype.number(),
-      cpf: faker.datatype.uuid(),
-      name: faker.name.findName(),
-      email: faker.internet.email()
-    }, {
-      id: faker.datatype.number(),
-      cpf: faker.datatype.uuid(),
-      name: faker.name.findName(),
-      email: faker.internet.email()
-    }, {
-      id: faker.datatype.number(),
-      cpf: faker.datatype.uuid(),
-      name: faker.name.findName(),
-      email: faker.internet.email()
-    }]
+    output = [mockStudent(), mockStudent()]
     url = faker.internet.url()
     httpClient = mock()
     httpClient.request.mockResolvedValue({ statusCode: 200, body: output })
