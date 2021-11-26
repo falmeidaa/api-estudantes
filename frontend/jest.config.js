@@ -7,8 +7,7 @@ module.exports = {
   coverageDirectory: 'coverage',
   setupFilesAfterEnv: ['<rootDir>/src/main/config/jest-setup.ts'],
   testPathIgnorePatterns: [
-    '<rootDir>/node_modules/',
-    '<rootDir>/tests/main/cypress/'
+    '<rootDir>/node_modules/'
   ],
   testEnvironment: 'jsdom',
   transform: {

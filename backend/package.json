@@ -12,8 +12,8 @@
     "test": "jest --passWithNoTests --no-cache --runInBand",
     "test:watch": "npm test -- --watch",
     "test:staged": "npm test -- --findRelatedTests",
-    "test:coverage": "npm test -- --coverage",
-    "typeorm": "ts-node -r tsconfig-paths/register ./node_modules/.bin/typeorm",
+    "test:ci": "npm test -- --coverage",
+    "typeorm": "ts-node --transpile-only ./node_modules/typeorm/cli.js",
     "migration:run": "npm run typeorm -- migration:run",
     "migration:revert": "npm run typeorm -- migration:revert"
   },
@@ -29,6 +29,7 @@
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
     "typeorm": "^0.2.29",
+    "ts-node": "^10.4.0",
     "validator": "^13.7.0"
   },
   "devDependencies": {
@@ -50,8 +51,7 @@
     "jest-mock-extended": "^2.0.4",
     "lint-staged": "^12.1.2",
     "pg-mem": "^2.1.9",
-    "ts-jest": "^27.0.7",
-    "ts-node": "^10.4.0",
+    "ts-jest": "^27.0.7",    
     "ts-node-dev": "^1.1.8",
     "typescript": "^4.5.2"
   }

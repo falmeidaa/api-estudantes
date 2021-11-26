@@ -1,0 +1,51 @@
+version: "3"
+services:
+  db-postgres:
+    container_name: db-postgres
+    image: postgres:12-alpine
+    restart: always
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=db-test
+    volumes:
+      - db-postgres-data:/data
+      - ./create-database.sql:/docker-entrypoint-initdb.d/create-database.sql
+    ports:
+      - "5432:5432"
+  backend:
+    container_name: backend
+    image: node:16
+    working_dir: /usr/workspace/backend
+    restart: unless-stopped
+    command: bash -c "npm install --only=prod && npm run migration:run && npm start"
+    env_file:
+      - ./backend/.env
+    volumes:
+      - ./backend/dist:/usr/workspace/backend/dist/
+      - ./backend/package.json:/usr/workspace/backend/package.json
+      - ./backend/ormconfig.js:/usr/workspace/backend/ormconfig.js
+    ports:
+      - "3000:3000"
+    links:
+      - db-postgres
+  frontend:
+    container_name: frontend
+    image: node:16
+    working_dir: /usr/workspace/frontend
+    restart: unless-stopped
+    command: bash -c "npm install --legacy-peer-deps --only=prod && npm start"
+    environment:
+      - BASE_URL=http://backend
+      - PORT=3000
+      - APP_PORT=8080
+    volumes:
+      - ./frontend/dist:/usr/workspace/frontend/dist/
+      - ./frontend/package.json:/usr/workspace/frontend/package.json
+      - ./frontend/index.js:/usr/workspace/frontend/index.js
+    ports:
+      - "8080:8080"
+    links:
+      - backend
+volumes:
+  db-postgres-data:
