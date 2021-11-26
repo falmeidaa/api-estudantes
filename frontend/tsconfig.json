@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "target": "es2021",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "jsx": "react",
+    "rootDirs": ["src", "tests"],
+    "baseUrl": ".",
+    "allowJs": true,
+    "skipLibCheck": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "paths": {
+      "#/*":["*"],
+      "~/*":["./tests/*"],
+      "@/*":["./src/*"]
+    }
+  },
+  "include": ["src", "tests"]
+}
